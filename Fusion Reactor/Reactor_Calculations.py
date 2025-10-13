@@ -47,4 +47,29 @@ print(f"dF^2/dpsi = {dF2_dpsi}")
 
 print("Toroidal Flux Gradient:",(mu0*r*r*dp_dpsi)-(dF2_dpsi))
 
+#This is the calculation of the energy for particle transport
+Gamma_range = (1e24, 1e27) #Particle flux in m^-2*s^-1
+S_range = (1e14, 1e19) #Source term resulting in diffusion and convection
+
+#Gets inputs from the user
+Gamma = get_input_with_range("Enter the flux of the particle in the reactor:",*Gamma_range)
+S = get_input_with_range("Enter the flux from source term:",*S_range)
+
+print(f"\ninputs accepted:")
+print(f"Gamma = {Gamma}")
+print(f"S = {S}")
+print("Total particle density:",(-Gamma)+(S)) #in m^-3
+
+print("Now let's calculate the diffusive flux as it is practically more expensive for manual testing.")
+
+#Calculating diffusive flux
+v_n_range = (10, 250) #convective flux in mu_m/min
+
+v_n = get_input_with_range("Enter the convective flux value in micrometers/min:",v_n_range)
+
+print(f"Total convective flux = {v_n}")
+
+print("Diffusive flux:",(Gamma)-(v_n))
+
+
 
