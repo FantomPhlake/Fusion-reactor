@@ -65,11 +65,12 @@ print("Now let's calculate the diffusive flux as it is practically more expensiv
 #Calculating diffusive flux
 v_n_range = (10, 250) #convective flux in mu_m/min
 
-v_n = get_input_with_range("Enter the convective flux value in micrometers/min:",v_n_range)
+v_n = get_input_with_range("Enter the convective flux value in micrometers/min:",*v_n_range)
 
 print(f"Total convective flux = {v_n}")
 
 print("Diffusive flux:",(Gamma)-(v_n))
+
 
 
 
