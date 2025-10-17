@@ -71,6 +71,25 @@ print(f"Total convective flux = {v_n}")
 
 print("Diffusive flux:",(Gamma)-(v_n))
 
+#This is the calculation of the power density formula
+n_D_range = (1e19, 1e21) #density of deuterium in m^-3
+n_T_range = (1e19, 1e21) #density of tritium in m^-3
+sigma_v_range = (1e-22, 9e-22) #magnitude of fusion reactivity in the order of m^3/s
+E_f = 17.6 #in meV
+
+#Gets inputs from the user
+n_D = get_input_with_range("Enter a value for density of deuterium in the given range:",*n_D_range)
+n_T = get_input_with_range("Enter a value for density of tritium in the given range:",*n_T_range)
+sigma_v = get_input_with_range("Enter the magnitude of fusion reactivity in the given range:",*sigma_v_range)
+
+print(f"Deuterium density = {n_D}")
+print(f"Tritium density = {n_T}")
+print(f"Fusion reactivity = {sigma_v}")
+
+print("Fusion Power density:",(n_D*n_T*sigma_v*E_f))
+
+
+
 
 
 
